@@ -2,19 +2,6 @@
 
 A lightweight cloud-based file storage system built with Streamlit and Firebase, demonstrating the fundamentals of cloud storage, frontend integration, metadata management, and secure file-handling practices.
 
-## 📋 Table of Contents
-- [Problem Statement](#problem-statement)
-- [Solution Overview](#solution-overview)
-- [System Architecture](#system-architecture)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [How It Works](#how-it-works)
-
 ## 🎯 Problem Statement
 
 Modern applications require secure, scalable, and user-friendly file storage systems. Traditional local storage solutions have limitations such as:
@@ -27,41 +14,16 @@ This project addresses these challenges by providing a *lightweight, cloud-based
 
 ## 💡 Solution Overview
 
-We build a cloud-based file upload and storage system using:
+ A cloud-based file upload and storage system using:
 
 - *Frontend UI:* Streamlit - for rapid, interactive web application development
 - *Cloud Storage:* Firebase Storage - for reliable file storage
 - *Database:* Firestore - for metadata management
 
-The system allows users to upload files up to *10 MB*, which are directly stored in the cloud. File details such as name, size, MIME type, storage path, and download URL are stored in Firestore. A clean dashboard displays all stored files and allows users to download them.
+The system allows users to upload files up to *10 MB*that are stored directly in the cloud. File details such as name, size, MIME type, storage path, and download URL are stored in Firestore. A clean dashboard displays all stored files and allows users to download them.
 
 ## 🏗 System Architecture
-
-
-   ┌────────────────┐
-   │   User (UI)    │
-   │  Streamlit App │
-   └───────┬────────┘
-           │ Upload File
-           ▼
-   ┌─────────────────────┐
-   │ Firebase Storage    │
-   │ Stores actual files │
-   └─────────┬───────────┘
-             │ Write Metadata
-             ▼
-   ┌─────────────────────┐
-   │ Firestore Database  │
-   │ Stores: name, size, │
-   │ cloud path, URL     │
-   └─────────┬───────────┘
-             │ Fetch Metadata
-             ▼
-   ┌─────────────────────┐
-   │  Streamlit Dashboard│
-   │ Shows files + links │
-   └─────────────────────┘
-
+![System Architecture](system_archi.png)
 
 ## ✨ Features
 
@@ -99,16 +61,10 @@ Before you begin, ensure you have the following installed:
 ## 🚀 Installation
 
 ### 1. Clone or Download the Project
-
-bash
-cd cloudproject
-
+      cd cloudproject
 
 ### 2. Install Dependencies
-
-bash
-pip install -r requirements.txt
-
+      pip install -r requirements.txt
 
 The required packages are:
 - streamlit==1.31.0 - Web application framework
@@ -137,12 +93,12 @@ The required packages are:
 3. Click *Generate New Private Key*
 4. Download the JSON file
 5. Rename it to serviceAccountKey.json
-6. Place it in the project root directory (/home/raghav/cloudproject/)
+6. Place it in the project root directory (/home/priyal/Mini_Cloud/Project/)
 
 ### Step 3: Configure Environment Variables
 
 1. Create a .env file in the project root directory:
-   bash
+   ```bash
    touch .env
    
 
@@ -178,12 +134,12 @@ service firebase.storage {
 ### Running the Application
 
 1. Make sure you're in the project directory:
-   bash
+   ```bash
    cd /home/raghav/cloudproject
    
 
 2. Run the Streamlit application:
-   bash
+   ```bash
    streamlit run app.py
    
 
@@ -209,27 +165,13 @@ service firebase.storage {
 6. Refresh the list using the refresh button
 
 ## 📁 Project Structure
-
-
-cloudproject/
-│
-├── app.py                      # Main Streamlit application
-├── firebase_config.py          # Firebase initialization and config
-├── file_storage.py             # File upload/download logic
-├── requirements.txt            # Python dependencies
-├── .env                        # Environment variables (not in repo)
-├── .env.example                # Example environment variables
-├── .gitignore                  # Git ignore file
-├── README.md                   # This file
-├── AGENTS.md                   # Project specification
-└── serviceAccountKey.json      # Firebase credentials (not in repo)
-
+![Folder Structure](struct.jpg)
 
 ### File Descriptions
 
 - **app.py**: Main Streamlit application with UI components and user interactions
 - **firebase_config.py**: Handles Firebase Admin SDK initialization and provides access to Storage and Firestore
-- **file_storage.py**: Contains FileStorageManager class with methods for upload, download, delete, and metadata management
+- **file_storage.py**: Contains the FileStorageManager class with methods for upload, download, delete, and metadata management
 - **requirements.txt**: Lists all Python package dependencies
 - **.env**: Stores sensitive configuration (credentials path, bucket name)
 - **serviceAccountKey.json**: Firebase service account credentials (keep secure!)
@@ -249,7 +191,7 @@ cloudproject/
 
 ### File Retrieval Flow
 
-1. *Query Firestore* for all documents in files collection
+1. *Query Firestore* for all documents in the files collection
 2. *Fetch metadata* including download URLs
 3. *Display in table* with sortable columns
 4. *Provide download links* for each file
@@ -321,7 +263,7 @@ This project demonstrates:
 - Restart the Streamlit application after making changes
 
 #### 4. File upload fails
-*Error*: Upload button shows error message
+*Error*: The Upload button shows an error message
 
 *Solutions*:
 - Check Firebase Storage is enabled in Firebase Console
@@ -549,7 +491,6 @@ Maximum allowed file size in bytes (calculated from MAX_FILE_SIZE_MB).
 ## 🔧 Configuration Options
 
 ### Modifying File Size Limit
-
 To change the maximum upload size, edit file_storage.py:
 
 python
