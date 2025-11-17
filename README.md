@@ -61,7 +61,7 @@ Before you begin, ensure you have the following installed:
 ## 🚀 Installation
 
 ### 1. Clone or Download the Project
-      cd cloudproject
+      cd Project
 
 ### 2. Install Dependencies
       pip install -r requirements.txt
@@ -135,7 +135,7 @@ service firebase.storage {
 
 1. Make sure you're in the project directory:
    ```bash
-   cd /home/raghav/cloudproject
+   cd /home/Priyal/Mini_Cloud/Project
    
 
 2. Run the Streamlit application:
